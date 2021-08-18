@@ -1,0 +1,11 @@
+{% extends "app_pets/base.html" %}
+
+{% block title %}delete{% endblock %}
+
+{% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <p>Are you sure whant to Delete: '{{ delete.name }}'?</p>
+        <button type="submit">Delete</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "app_pets/base.html" %}
+
+{% block title %} {{ pets_detail.name }} {% endblock %}
+
+{% block content %}
+    <li>
+        {{ pets_detail.name }}
+    </li>
+    <li>
+        {{ pets_detail.age }}
+    </li>
+    <li>
+        {{ pets_detail.come_data }}
+    </li>
+    <li>
+        {{ pets_detail.weight }}
+    </li>
+    <li>
+        {{ pets_detail.special_signs }}
+    </li>
+
+        {% if request.user.groups %}
+            <p><a href="{% url 'delete' pets_detail.pk %}">Delete</a></p><br>
+            <p><a href="{% url 'edit' pets_detail.pk %}">Edit</a></p>
+        {% endif %}
+
+{% endblock %}

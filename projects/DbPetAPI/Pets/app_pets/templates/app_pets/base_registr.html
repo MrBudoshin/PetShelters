@@ -1,0 +1,13 @@
+{% extends "app_pets/base.html" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+
+{% endblock %}

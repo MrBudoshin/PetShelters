@@ -1,0 +1,26 @@
+{% extends "app_pets/base.html" %}
+
+{% block title %}Pet List{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'create' %}">Create</a></p><br>
+
+     {% if request.user.is_authenticated %}
+        <h3>Welcome to the site {{ request.user.username|title }}</h3>
+        <a href="{% url 'logout' %}">Exit the site</a><br>
+         {% for pet in pets %}
+        <br>
+            <li>
+                <a href="{% url 'detail' pet.pk %}">{{ pet.name }}</a><br>
+                <p>{{ pet.special_signs}}</p>
+            </li>
+        {% endfor %}
+    {% else %}
+
+        <h3>You are not logged in on the site</h3>
+        <a href="{% url 'login' %}">Login to the site</a><br>
+        <p><a href="{% url 'registrs' %}">Register now</a></p><br>
+
+    {% endif %}
+
+{% endblock %}
